@@ -8,9 +8,11 @@ def canUnlockAll(boxes):
         return False
 
     unlocked = [boxes[0]]
+    keys = [0]
     for box in unlocked:
         for key in box:
-            if key < len(boxes) and boxes[key] not in unlocked:
+            if key < len(boxes) and key not in keys:
                 unlocked.append(boxes[key])
+                keys.append(key)
 
     return len(unlocked) == len(boxes)
