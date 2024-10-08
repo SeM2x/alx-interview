@@ -3,23 +3,11 @@
 
 
 def canUnlockAll(boxes):
-    """Function to determine if all boxes can be opened"""
-    if not boxes:
-        return False
-
-    unlocked = [0]
-    keys = set(boxes[0])
-
-    while keys:
-        new_keys = set()
-        for key in keys:
-            if key < len(boxes) and key not in unlocked:
-                unlocked.append(key)
-                new_keys.update(boxes[key])
-
-        if not new_keys:
-            break
-
-        keys = new_keys
+    """function to determine if all boxes can be opened"""
+    unlocked = [boxes[0]]
+    for box in unlocked:
+        for key in box:
+            if key < len(boxes) and boxes[key] not in unlocked:
+                unlocked.append(boxes[key])
 
     return len(unlocked) == len(boxes)
