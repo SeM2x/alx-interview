@@ -4,6 +4,8 @@
 
 def canUnlockAll(boxes):
     """Function to determine if all boxes can be opened"""
+    if not boxes:
+        return False
     unlocked = [0]
     keys = set(boxes[0])
 
