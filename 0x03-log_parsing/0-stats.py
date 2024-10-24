@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script to parse log entries from standard input, 
+"""A script to parse log entries from standard input,
 count occurrences of specific status codes, and calculate total file size.s
 """
 import sys
