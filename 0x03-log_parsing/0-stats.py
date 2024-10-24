@@ -1,16 +1,10 @@
 #!/usr/bin/python3
+"""A script for parsing HTTP request logs.
 """
-This script parses log lines from standard input,
-extracts relevant information, and prints statistics every 10 lines.
-"""
-import re
 
 
 def get_stats(lines: list[str]):
-    """
-    Calculate and print the total file size and the count
-    of each HTTP status code from a list of log lines.
-    """
+    """Print the total file size and status count"""
     file_size = 0
     status_count = {
         "200": 0,
