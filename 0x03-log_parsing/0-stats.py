@@ -34,13 +34,14 @@ def get_stats(lines: list[str]):
             print(f"{key}: ", val)
 
 
-count = 0
-lines = []
-try:
-    for line in sys.stdin:
-        lines.append(line)
-        count += 1
-        if count % 10 == 0:
-            get_stats(lines)
-except KeyboardInterrupt:
-    get_stats(lines)
+if __name__ == '__main__':
+    count = 0
+    lines = []
+    try:
+        for line in sys.stdin:
+            lines.append(line)
+            count += 1
+            if count % 10 == 0:
+                get_stats(lines)
+    except KeyboardInterrupt:
+        get_stats(lines)
