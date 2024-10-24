@@ -56,8 +56,10 @@ def print_stats(lines):
         "500": 0,
     }
     for line in lines:
-        file_size += parse_line(line)["size"]
-        status_count[parse_line(line)["status"]] += 1
+        size = int(line.split()[-1])
+        status = line.split()[-2]
+        file_size += size
+        status_count[status] += 1
 
     print(f"File size: {file_size}")
     for key, val in status_count.items():
@@ -69,10 +71,9 @@ count = 0
 lines = []
 try:
     for line in sys.stdin:
-        if parse_line(line) is not False:
-            lines.append(line)
-            count += 1
-            if count % 10 == 0:
-                print_stats(lines)
+        lines.append(line)
+        count += 1
+        if count % 10 == 0:
+            print_stats(lines)
 finally:
     print_stats(lines)
