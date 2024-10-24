@@ -6,7 +6,7 @@ extracts relevant information, and prints statistics every 10 lines.
 import sys
 
 
-def parse_line(line: str):
+def parse_line(line):
     """
     Parses a log line and returns a dictionary with IP, date, request, status,
     and size if valid, otherwise returns False.
@@ -39,7 +39,7 @@ def parse_line(line: str):
             req, "status": status, "size": int(size)}
 
 
-def get_stats(lines: list[str]):
+def get_stats(lines):
     """
     Calculate and print the total file size and the count
     of each HTTP status code from a list of log lines.
