@@ -3,7 +3,7 @@
 This script parses log lines from standard input,
 extracts relevant information, and prints statistics every 10 lines.
 """
-import sys
+import re
 
 
 def get_stats(lines: list[str]):
@@ -38,10 +38,10 @@ if __name__ == '__main__':
     count = 0
     lines = []
     try:
-        for line in sys.stdin:
-            lines.append(line)
+        while True:
+            lines.append(input())
             count += 1
             if count % 10 == 0:
                 get_stats(lines)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         get_stats(lines)
