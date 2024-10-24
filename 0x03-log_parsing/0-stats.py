@@ -3,7 +3,7 @@
 """
 
 
-def get_stats(lines: list[str]):
+def get_stats(lines):
     """Print the total file size and status count"""
     file_size = 0
     status_count = {
