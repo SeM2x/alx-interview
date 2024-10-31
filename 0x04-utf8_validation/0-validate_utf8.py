@@ -8,7 +8,7 @@ def get_bytes_count(num):
     while tmp & 0b10000000:
         count += 1
         tmp <<= 1
-    return count
+    return count - 1
 
 
 def validUTF8(data):
